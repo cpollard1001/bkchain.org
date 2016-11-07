@@ -11,8 +11,8 @@ var express = require('express'),
     
 var proxy = new httpProxy.createProxyServer({ ws: true, agent: http.globalAgent });
 
-var api_local_hosted = false;
-var api_remote_url_raw = 'http://jackcash.info/';
+var api_local_hosted = true;
+var api_remote_url_raw = 'https://jackcash.info/';
 var api_remote_url_ws = 'ws://jackcash.info/';
 
 var defs = {
@@ -48,16 +48,10 @@ function get_ws_api_url(currency) {
   if (api_local_hosted) {
     // Hosted locally, redirect to appropriate port (bkchaind daemon)
     switch (currency) {
-    case 'btc':
-      return 'http://127.0.0.1:8352';
-    case 'ltc':
-      return 'http://127.0.0.1:9352';
-    case 'ppc':
-      return 'http://127.0.0.1:9922';
-    case 'doge':
-      return 'http://127.0.0.1:22575';
+    case 'jcs':
+      return 'http://127.0.0.1:12254';
     default:
-      throw 'Invalid currency';
+      return 'http://127.0.0.1:12254';
     }
   } else {
     // Not hosted locally, redirect to online website
@@ -69,16 +63,10 @@ function get_raw_api_url(currency) {
   if (api_local_hosted) {
     // Hosted locally, redirect to appropriate port (bkchaind daemon)
     switch (currency) {
-    case 'btc':
-      return 'http://127.0.0.1:8342';
-    case 'ltc':
-      return 'http://127.0.0.1:9342';
-    case 'ppc':
-      return 'http://127.0.0.1:9912';
-    case 'doge':
-      return 'http://127.0.0.1:22565';
+    case 'jcs':
+      return 'http://127.0.0.1:12244';
     default:
-      throw 'Invalid currency';
+      throw 'http://127.0.0.1:12244';
     }
   } else {
     // Not hosted locally, redirect to online website
@@ -201,6 +189,6 @@ server.on('upgrade', function (req, socket, head) {
 server.on('error', function (e) { console.log('server error: %s', e); });
 
 // Start server
-server.listen(3000, function() {
+server.listen(80, function() {
     console.log('Listening on port %d', server.address().port);
 });
