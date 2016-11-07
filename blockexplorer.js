@@ -157,7 +157,7 @@ app.set('json spaces', 1);
 
 // Page selector
 app.get(/^(.*)$/, function(req, res) {
-    var data = { _def: defs, layout: false, strip: false, title_details: 'bkchain.org', script_name_base: '', source_base: '' };
+    var data = { _def: defs, layout: false, strip: false, title_details: 'jackcash.info', script_name_base: '', source_base: '' };
     var url = req.params[0];
     var url_parts = url.split('/').filter(function(e){return e});
     

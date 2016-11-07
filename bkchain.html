@@ -234,8 +234,6 @@ table.treetable tr.expanded span.indenter a {
   padding-right: 10px;
 }
     </style>
-
-
 </head>
 <body>
 
@@ -302,7 +300,7 @@ var out='      <tr>\n\t\t<td class="text-center"><a href=\''+(it.script_name)+'/
         livetx = document.getElementById("livetx");
         liveblock = document.getElementById("liveblock");
 
-        var livetx_url = "ws://bkchain.org/" + data['currency_api'] + "/livetx";
+        var livetx_url = "ws://jackcash.info/" + data['currency_api'] + "/livetx";
 
         websocket = new WebSocket(livetx_url);
         websocket.onopen = function(evt) { websocket.send(JSON.stringify({ subscribe: 'livetx' })); };
@@ -393,7 +391,7 @@ var out='      <tr>\n\t\t<td class="text-center"><a href=\''+(it.script_name)+'/
   var current_currency;
   var query_api = function(request,cb){
     var payload = {'method': request['method'], 'id': 1, 'jsonrpc': 1, 'params': request['params']};
-    $.post('https://bkchain.org/api/raw/' + request['currency'], JSON.stringify(payload), function(body){
+    $.post('https://jackcash.info/api/raw/' + request['currency'], JSON.stringify(payload), function(body){
       cb(null, body);
     });
   };
@@ -649,7 +647,6 @@ function route_search(currency, search_value, redirect_callback) {
   Please help support development and server cost:<br style='clear:both;'/><br style='clear:both;'/>
   JCS/BTC: <a href="#/jcs/address/1EqHbCGWdXUPYAemwnodcigXudAi4aPZKi">1EqHbCGWdXUPYAemwnodcigXudAi4aPZKi</a><br style='clear:both;'/>
   </center>
-  <br/>
 </p>
 
 
