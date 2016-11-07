@@ -3,6 +3,7 @@ var fs = require('fs');
 var request = require('request');
 var http = require('http');
 var httpProxy = require('http-proxy');
+var bodyParser = require('body-parser')
 var express = require('express'),
     app = express(),
     doT = require('dot'),
@@ -119,9 +120,8 @@ function route_api(data, url_parts, req, json_callback) {
       case 'tx':
         var api2 = url_parts[4];
         var parameter = url_parts[5];
-        var hexdata = req.param('confirmations');
-        console.log('asdf', hexdata);
-        switch (api2)parameter
+        var hexdata = req.body['hexdata'];
+        switch (api2)
         {
         case 'hash':
           route_api_query(data, {'currency': data['currency_api'], 'method': 'tx_hash', 'params': { 'hash': parameter }}, json_callback);
@@ -158,8 +158,7 @@ function route_api(data, url_parts, req, json_callback) {
 // JSON API pretty print
 app.set('json spaces', 1);
 
-// Page selector
-app.get(/^(.*)$/, function(req, res) {
+var pageSelector = function(req, res) {
     var data = { _def: defs, layout: false, strip: false, title_details: 'jackcash.info', script_name_base: '', source_base: '' };
     var url = req.params[0];
     var url_parts = url.split('/').filter(function(e){return e});
@@ -178,7 +177,13 @@ app.get(/^(.*)$/, function(req, res) {
     } else {
       route_url(data, url_parts, function(request_type, data) { res.render(request_type + '.html', data); }, function(url) { res.redirect('/' + url); });
     }
-});
+};
+
+// Page selector
+app.get(/^(.*)$/, pageSelector);
+var jsonParser = bodyParser.json()
+app.post(/^(.*)$/, jsonParser, pageSelector);
+
 
 var server = require('http').createServer(app);
 
