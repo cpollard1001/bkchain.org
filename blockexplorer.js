@@ -63,10 +63,10 @@ function get_raw_api_url(currency) {
   if (api_local_hosted) {
     // Hosted locally, redirect to appropriate port (bkchaind daemon)
     switch (currency) {
-    case 'btc':
+    case 'jcs':
       return 'http://127.0.0.1:12244';
     default:
-      throw 'Invalid currency';
+      throw 'http://127.0.0.1:12244';
     }
   } else {
     // Not hosted locally, redirect to online website

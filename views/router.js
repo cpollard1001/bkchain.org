@@ -1,47 +1,21 @@
 // Parse URL, perform API requests and route results to appropriate page (using callback). Shared by both backend and frontend.
 function route_prepare_data(data, script_name_prefix, url_parts)
 {
-    var currency = url_parts[0] || 'btc';
+    var currency = url_parts[0] || 'jcs';
 
-    data['coin_factor'] = '100000000';
+    data['coin_factor'] = '1000000';
     data['currency_api'] = currency;
    
     // Parse currency (first part of URL -- default to BTC)
     switch (currency)
     {
-    case 'ltc':
-      data['currency'] = 'Litecoin';
-      data['currency_short'] = 'LTC';
-      data['script_name'] = script_name_prefix + 'ltc';
-      data['default_fees'] = 0.001;
-      data['address_version'] = 48;
-      data['donation_address'] = "LXzHvrRMQVEHj6gvK4rsZ7HGopgqfxS7PS";
-      break;
-    case 'doge':
-      data['currency'] = 'Dogecoin';
-      data['currency_short'] = 'DOGE';
-      data['script_name'] = script_name_prefix + 'doge';
-      data['default_fees'] = 1.0;
-      data['address_version'] = 30;
-      data['donation_address'] = "DLm1XX5JcxQeGL5nXmkFCMJXCorcFQXRnT";
-      break;
-    case 'ppc':
-      data['currency'] = 'Peercoin';
-      data['currency_short'] = 'PPC';
-      data['coin_factor'] = '1000000';
-      data['script_name'] = script_name_prefix + 'ppc';
+    case 'jcs':
+      data['currency'] = 'JackCash';
+      data['currency_short'] = 'JCS';
+      data['script_name'] = script_name_prefix + 'jcs';
       data['default_fees'] = 0.01;
-      data['address_version'] = 55;
-      data['donation_address'] = "PEiZ7r4KR85izAhfzQKJgJxdQkQ6PPXXEX";
-      data['proofofstake'] = true;
-      break;
-    case 'btc':
-      data['currency'] = 'Bitcoin';
-      data['currency_short'] = 'BTC';
-      data['script_name'] = script_name_prefix + 'btc';
-      data['default_fees'] = 0.0001;
       data['address_version'] = 0;
-      data['donation_address'] = "1LLqMFskaSaZ3w2LuH6dbQaULcy1Bu1b2R";
+      data['donation_address'] = "1EqHbCGWdXUPYAemwnodcigXudAi4aPZKi";
       break;
     default:
       return false;
@@ -156,16 +130,7 @@ function route_search(currency, search_value, redirect_callback) {
       // Try to be "intelligent" and redirect address by their prefix
       switch (search_value[0]) {
       case '1':
-        redirect_callback('btc/address/' + search_value);
-        break;
-      case 'P':
-        redirect_callback('ppc/address/' + search_value);
-        break;
-      case 'L':
-        redirect_callback('ltc/address/' + search_value);
-        break;
-      case 'D':
-        redirect_callback('doge/address/' + search_value);
+        redirect_callback('jcs/address/' + search_value);
         break;
       default:
         throw 'Invalid address type';

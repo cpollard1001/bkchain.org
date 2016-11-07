@@ -37,11 +37,11 @@ generateTemplate('address_template.html', 'address_template.js', defs);
 eval(fs.readFileSync(__dirname + '/views/router.js') + '');
 
 // Static block explorer
-var data = { title_details: 'bkchain.org', script_name: '#/btc', script_name_base: '#', source_base: '.', currency_short: 'BTC' };
+var data = { title_details: 'jackcash.info', script_name: '#/jcs', script_name_base: '#', source_base: '.', currency_short: 'JCS' };
 writeTemplate('index_static.html', 'bkchain.html', defs, data);
 defs.wallet = true;
 
 // JCS Wallet
 data['script_name_base'] = 'bkchain.html#';
-route_prepare_data(data, 'bkchain.html#/', ['btc']);
-writeTemplate('wallet.html', 'wallet_btc.html', defs, data);
+route_prepare_data(data, 'bkchain.html#/', ['jcs']);
+writeTemplate('wallet.html', 'wallet_jcs.html', defs, data);
