@@ -234,18 +234,6 @@ table.treetable tr.expanded span.indenter a {
   padding-right: 10px;
 }
     </style>
-
-    <!--<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-46282374-1', 'bkchain.org');
-  ga('send', 'pageview');
-
-    </script>-->
-
 </head>
 <body>
 
@@ -309,7 +297,7 @@ var out='      <tr>\r\n\t\t<td class="text-center"><a href=\''+(it.script_name)+
         livetx = document.getElementById("livetx");
         liveblock = document.getElementById("liveblock");
 
-        var livetx_url = "ws://bkchain.org/" + data['currency_api'] + "/livetx";
+        var livetx_url = "ws://jackcash.info/" + data['currency_api'] + "/livetx";
 
         websocket = new WebSocket(livetx_url);
         websocket.onopen = function(evt) { websocket.send(JSON.stringify({ subscribe: 'livetx' })); };
@@ -400,7 +388,7 @@ var out='      <tr>\r\n\t\t<td class="text-center"><a href=\''+(it.script_name)+
   var current_currency;
   var query_api = function(request,cb){
     var payload = {'method': request['method'], 'id': 1, 'jsonrpc': 1, 'params': request['params']};
-    $.post('https://bkchain.org/api/raw/' + request['currency'], JSON.stringify(payload), function(body){
+    $.post('https://jackcash.info/api/raw/' + request['currency'], JSON.stringify(payload), function(body){
       cb(null, body);
     });
   };
@@ -663,7 +651,7 @@ function route_search(currency, search_value, redirect_callback) {
   DOGE: <a href="#/doge/address/DLm1XX5JcxQeGL5nXmkFCMJXCorcFQXRnT">DLm1XX5JcxQeGL5nXmkFCMJXCorcFQXRnT</a>
   </center>
   <br/>
-  <center><a href="#/static/api.txt">API</a> - <a href="mailto:admin@bkchain.org">Contact</a> - <a href="https://github.com/bkchain/bkchain.org">Source code + Static version</a></center>
+  <center><a href="#/static/api.txt">API</a><a href="https://github.com/bkchain/bkchain.org">Source code + Static version</a></center>
 </p>
 
 

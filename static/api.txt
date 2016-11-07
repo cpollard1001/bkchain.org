@@ -1,4 +1,4 @@
-bkchain.org JSON API
+jackcash.info JSON API
 
 Blocks:
 - $currency/api/v1/block/hash/$block_hash
