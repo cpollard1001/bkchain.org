@@ -119,7 +119,9 @@ function route_api(data, url_parts, req, json_callback) {
       case 'tx':
         var api2 = url_parts[4];
         var parameter = url_parts[5];
-        switch (api2)
+        var hexdata = req.param('confirmations');
+        console.log('asdf', hexdata);
+        switch (api2)parameter
         {
         case 'hash':
           route_api_query(data, {'currency': data['currency_api'], 'method': 'tx_hash', 'params': { 'hash': parameter }}, json_callback);
@@ -128,6 +130,7 @@ function route_api(data, url_parts, req, json_callback) {
           route_api_query(data, {'currency': data['currency_api'], 'method': 'tx_index', 'params': { 'index': Number(parameter) }}, json_callback);
           break;
         case 'push':
+          route_api_query(data, {'currency': data['currency_api'], 'method': 'tx_push', 'params': { 'hexdata': parameter }}, json_callback);
           break;
         }
         break;
