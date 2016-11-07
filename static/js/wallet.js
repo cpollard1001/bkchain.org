@@ -81,7 +81,7 @@ var wallet = new function() {
     for (var i = 0; i < addressesGroupCount; ++i) {
       // TODO: Query more incrementally instead of throwing everything right away?
       var addressesSlice = addressesToCheck.slice(i * addressesGroupSize, Math.min((i + 1) * addressesGroupSize, addressesToCheck.length));
-      query_url("https://jackcash.info/" + current_currency + "/api/v1/address/unspent/" + addressesSlice.join() + "?confirmations=0", function(unspent_results) {
+      query_url("http://jackcash.info/" + current_currency + "/api/v1/address/unspent/" + addressesSlice.join() + "?confirmations=0", function(unspent_results) {
       
         // Already found solution in another of the callbacks
         if (valid) {
@@ -213,7 +213,7 @@ var wallet = new function() {
       if (++receivedBalances == interval)
       {
         // Send balance query
-        query_url("https://jackcash.info/" + current_currency + "/api/v1/address/balance/" + keys.slice(keys.length - interval, keys.length).map(function(x) { return x.address }).join() + "?confirmations=0", function(balance_results) {
+        query_url("http://jackcash.info/" + current_currency + "/api/v1/address/balance/" + keys.slice(keys.length - interval, keys.length).map(function(x) { return x.address }).join() + "?confirmations=0", function(balance_results) {
           var hasTx = false;
           for (var i = 0; i < interval; ++i) {
             var balance_result = balance_results[i];
@@ -284,7 +284,7 @@ var wallet = new function() {
 
       (function() {
         var i1 = i; // capture variable right away
-        query_url("https://jackcash.info/" + current_currency + "/api/v1/address/balance/" + addressesSlice.join() + "?confirmations=0", function(balance_results) {
+        query_url("http://jackcash.info/" + current_currency + "/api/v1/address/balance/" + addressesSlice.join() + "?confirmations=0", function(balance_results) {
           for (var j = 0; j < balance_results.length; ++j) {
             var balance_result = balance_results[j];
         
@@ -314,7 +314,7 @@ var wallet = new function() {
   
   function sendTx() {
     var txHex = $('#txHex').val();
-    $.post("https://jackcash.info/" + current_currency + "/api/v1/tx/push",
+    $.post("http://jackcash.info/" + current_currency + "/api/v1/tx/push",
            JSON.stringify({ hexdata: txHex }),
            function(data) {
              if (data === "exception") {
