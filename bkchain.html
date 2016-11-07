@@ -259,20 +259,17 @@ table.treetable tr.expanded span.indenter a {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="#/btc" class="navbar-brand">bkchain</a>
+        <a href="#/jcs" class="navbar-brand">bkchain</a>
         <div class="navbar-main">
           <ul class="nav nav-pills list-inline">
             <li class="dropdown" id="navbar_currency_dropdown">
-              <a href="#/btc" class="dropdown-toggle" data-toggle="dropdown">undefined <b class="caret"></b></a>
+              <a href="#/jcs" class="dropdown-toggle" data-toggle="dropdown">undefined <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li class="active"><a href="#/btc">Bitcoin</a></li>
-                <li><a href="#/ltc">Litecoin</a></li>
-                <li><a href="#/ppc">Peercoin</a></li>
-                <li><a href="#/doge">Dogecoin</a></li>
+                <li class="active"><a href="#/jcs">JackCash</a></li>
               </ul>
             </li>
 
-            <li><a href="wallet_btc.html">Wallet <span class="label label-danger">alpha</span></a></li>
+            <li><a href="wallet_jcs.html">Wallet <span class="label label-danger">alpha</span></a></li>
 
           </ul>
         </div>
@@ -281,7 +278,7 @@ table.treetable tr.expanded span.indenter a {
 
         <form class="navbar-form navbar-right form-inline" method="post" onsubmit="main_search(); return false;">
 
-          <div class="form-group"><input type="text" class="form-control" id="search" name="search" placeholder="block id, block hash, transaction hash or address (BTC)"/></div>
+          <div class="form-group"><input type="text" class="form-control" id="search" name="search" placeholder="block id, block hash, transaction hash or address (JCS)"/></div>
           <button type="submit" class="btn btn-success">Search</button>
         </form>
       </div>
@@ -444,7 +441,7 @@ var out='<div class="row">\r\n<div class="col-md-5">\r\n<table class="table tabl
   // Parse URL, perform API requests and route results to appropriate page (using callback). Shared by both backend and frontend.
 function route_prepare_data(data, script_name_prefix, url_parts)
 {
-    var currency = url_parts[0] || 'btc';
+    var currency = url_parts[0] || 'jcs';
 
     data['coin_factor'] = '100000000';
     data['currency_api'] = currency;
@@ -452,39 +449,13 @@ function route_prepare_data(data, script_name_prefix, url_parts)
     // Parse currency (first part of URL -- default to BTC)
     switch (currency)
     {
-    case 'ltc':
-      data['currency'] = 'Litecoin';
-      data['currency_short'] = 'LTC';
-      data['script_name'] = script_name_prefix + 'ltc';
-      data['default_fees'] = 0.001;
-      data['address_version'] = 48;
-      data['donation_address'] = "LXzHvrRMQVEHj6gvK4rsZ7HGopgqfxS7PS";
-      break;
-    case 'doge':
-      data['currency'] = 'Dogecoin';
-      data['currency_short'] = 'DOGE';
-      data['script_name'] = script_name_prefix + 'doge';
-      data['default_fees'] = 1.0;
-      data['address_version'] = 30;
-      data['donation_address'] = "DLm1XX5JcxQeGL5nXmkFCMJXCorcFQXRnT";
-      break;
-    case 'ppc':
-      data['currency'] = 'Peercoin';
-      data['currency_short'] = 'PPC';
-      data['coin_factor'] = '1000000';
-      data['script_name'] = script_name_prefix + 'ppc';
+    case 'jcs':
+      data['currency'] = 'JackCash';
+      data['currency_short'] = 'JCS';
+      data['script_name'] = script_name_prefix + 'jcs';
       data['default_fees'] = 0.01;
-      data['address_version'] = 55;
-      data['donation_address'] = "PEiZ7r4KR85izAhfzQKJgJxdQkQ6PPXXEX";
-      data['proofofstake'] = true;
-      break;
-    case 'btc':
-      data['currency'] = 'Bitcoin';
-      data['currency_short'] = 'BTC';
-      data['script_name'] = script_name_prefix + 'btc';
-      data['default_fees'] = 0.0001;
       data['address_version'] = 0;
-      data['donation_address'] = "1LLqMFskaSaZ3w2LuH6dbQaULcy1Bu1b2R";
+      data['donation_address'] = "1EqHbCGWdXUPYAemwnodcigXudAi4aPZKi";
       break;
     default:
       return false;

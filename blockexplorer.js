@@ -12,8 +12,8 @@ var express = require('express'),
 var proxy = new httpProxy.createProxyServer({ ws: true, agent: http.globalAgent });
 
 var api_local_hosted = false;
-var api_remote_url_raw = 'https://bkchain.org/';
-var api_remote_url_ws = 'ws://bkchain.org/';
+var api_remote_url_raw = 'http://jackcash.info/';
+var api_remote_url_ws = 'ws://jackcash.info/';
 
 var defs = {
     loadfile:function(path){return fs.readFileSync(__dirname + path, 'utf8');},

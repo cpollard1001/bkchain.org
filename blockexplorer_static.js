@@ -41,20 +41,7 @@ var data = { title_details: 'bkchain.org', script_name: '#/btc', script_name_bas
 writeTemplate('index_static.html', 'bkchain.html', defs, data);
 defs.wallet = true;
 
-// BTC Wallet
+// JCS Wallet
 data['script_name_base'] = 'bkchain.html#';
 route_prepare_data(data, 'bkchain.html#/', ['btc']);
 writeTemplate('wallet.html', 'wallet_btc.html', defs, data);
-
-// PPC Wallet
-route_prepare_data(data, 'bkchain.html#/', ['ppc']);
-writeTemplate('wallet.html', 'wallet_ppc.html', defs, data);
-
-// LTC Wallet
-route_prepare_data(data, 'bkchain.html#/', ['ltc']);
-writeTemplate('wallet.html', 'wallet_ltc.html', defs, data);
-
-// DOGE Wallet
-route_prepare_data(data, 'bkchain.html#/', ['doge']);
-writeTemplate('wallet.html', 'wallet_doge.html', defs, data);
-

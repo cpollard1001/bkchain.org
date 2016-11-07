@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta keywords="Litecoin LTC block explorer chain blockchain cryptocurrency cryptocoin">
+    <meta keywords="JackCash JCS block explorer chain blockchain cryptocurrency cryptocoin">
 
 
     <meta name="description" content="bkchain explorer">
@@ -68,13 +68,13 @@
     <!-- various globals for this currency -->
     <script type="text/javascript">
         // Default values for various globals that might change depending on the currency
-        var address_version = 48;
-        var wif_version = 176;
-        var currency_short = "LTC";
-        var coinfactor = 100000000;
+        var address_version = 0;
+        var wif_version = 128;
+        var currency_short = "JCS";
+        var coinfactor = 1000000;
         var coindecimals = coinfactor.toString().length - 1;
-        var donateAddress = "LXzHvrRMQVEHj6gvK4rsZ7HGopgqfxS7PS";
-        var defaultFees = 0.001;
+        var donateAddress = "1EqHbCGWdXUPYAemwnodcigXudAi4aPZKi";
+        var defaultFees = 0.01;
     </script>
     <script src="./static/js/wallet.js"></script>
 
@@ -298,16 +298,13 @@ table.treetable tr.expanded span.indenter a {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="bkchain.html#/ltc" class="navbar-brand">bkchain</a>
+        <a href="bkchain.html#/jcs" class="navbar-brand">bkchain</a>
         <div class="navbar-main">
           <ul class="nav nav-pills list-inline">
             <li class="dropdown" id="navbar_currency_dropdown">
-              <a href="bkchain.html#/ltc" class="dropdown-toggle" data-toggle="dropdown">Litecoin <b class="caret"></b></a>
+              <a href="bkchain.html#/jcs" class="dropdown-toggle" data-toggle="dropdown">JackCash <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="bkchain.html#/btc">Bitcoin</a></li>
-                <li class="active"><a href="bkchain.html#/ltc">Litecoin</a></li>
-                <li><a href="bkchain.html#/ppc">Peercoin</a></li>
-                <li><a href="bkchain.html#/doge">Dogecoin</a></li>
+                <li class="active"><a href="bkchain.html#/jcs">JackCash</a></li>
               </ul>
             </li>
 
@@ -320,7 +317,7 @@ table.treetable tr.expanded span.indenter a {
 
         <form class="navbar-form navbar-right form-inline" method="post" onsubmit="main_search(); return false;">
 
-          <div class="form-group"><input type="text" class="form-control" id="search" name="search" placeholder="block id, block hash, transaction hash or address (LTC)"/></div>
+          <div class="form-group"><input type="text" class="form-control" id="search" name="search" placeholder="block id, block hash, transaction hash or address (JCS)"/></div>
           <button type="submit" class="btn btn-success">Search</button>
         </form>
       </div>
@@ -400,7 +397,7 @@ table.treetable tr.expanded span.indenter a {
           </div>
           <div class="col-sm-4">
             <div class="form-group input-group">
-              <span id="amount-prepend-text" class="input-group-addon">Amount (BTC)</span>
+              <span id="amount-prepend-text" class="input-group-addon">Amount (JCS)</span>
               <input id="txValue1" type="text" class="form-control" placeholder="amount" />
             </div>
           </div>
@@ -408,13 +405,13 @@ table.treetable tr.expanded span.indenter a {
         <div class="row">
           <div class="col-sm-5">
             <div class="form-group input-group">
-              <span id="fees-prepend-text" class="input-group-addon">Fees (BTC)</span>
+              <span id="fees-prepend-text" class="input-group-addon">Fees (JCS)</span>
               <input id="txFees" type="text" class="form-control" placeholder="tx fees" value="0.0001"/>
             </div>
           </div>
           <div class="col-sm-5" id="donate-div">
             <div class="form-group input-group">
-              <span id="donate-prepend-text" class="input-group-addon">Donate (BTC)</span>
+              <span id="donate-prepend-text" class="input-group-addon">Donate (JCS)</span>
               <input id="txDonate" type="text" class="form-control" placeholder="donate" value="0"/>
             </div>
           </div>
@@ -493,8 +490,8 @@ table.treetable tr.expanded span.indenter a {
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
   <script type="text/javascript">
-    var current_currency = 'ltc';
-    var script_name = 'bkchain.html#/ltc';
+    var current_currency = 'jcs';
+    var script_name = 'bkchain.html#/jcs';
   </script>
 </div>
 	</div>
@@ -503,10 +500,7 @@ table.treetable tr.expanded span.indenter a {
 <p>
   <center>
   Please help support development and server cost:<br style='clear:both;'/><br style='clear:both;'/>
-  BTC: <a href="bkchain.html#/btc/address/1LLqMFskaSaZ3w2LuH6dbQaULcy1Bu1b2R">1LLqMFskaSaZ3w2LuH6dbQaULcy1Bu1b2R</a><br style='clear:both;'/>
-  PPC: <a href="bkchain.html#/ppc/address/PEiZ7r4KR85izAhfzQKJgJxdQkQ6PPXXEX">PEiZ7r4KR85izAhfzQKJgJxdQkQ6PPXXEX</a><br style='clear:both;'/>
-  LTC: <a href="bkchain.html#/ltc/address/LXzHvrRMQVEHj6gvK4rsZ7HGopgqfxS7PS">LXzHvrRMQVEHj6gvK4rsZ7HGopgqfxS7PS</a><br style='clear:both;'/>
-  DOGE: <a href="bkchain.html#/doge/address/DLm1XX5JcxQeGL5nXmkFCMJXCorcFQXRnT">DLm1XX5JcxQeGL5nXmkFCMJXCorcFQXRnT</a>
+  JCS/BTC: <a href="bkchain.html#/jcs/address/1LLqMFskaSaZ3w2LuH6dbQaULcy1Bu1b2R">1LLqMFskaSaZ3w2LuH6dbQaULcy1Bu1b2R</a><br style='clear:both;'/>
   </center>
   <br/>
   <center><a href="bkchain.html#/static/api.txt">API</a> - <a href="mailto:admin@bkchain.org">Contact</a> - <a href="https://github.com/bkchain/bkchain.org">Source code + Static version</a></center>
