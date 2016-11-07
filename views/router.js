@@ -84,6 +84,9 @@ function route_url(data, url_parts, display_callback, redirect_callback)
         data['title_details'] = 'Address ' + data['address']['addr'];
         display_callback(request_type, data);
       });
+    } else if (request_type == 'wallet'){
+      data._def.wallet = true;
+      display_callback(request_type, data);
     }
 }
 
